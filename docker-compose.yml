@@ -2,10 +2,23 @@ version: '3.4'
 
 services:
   postgres:
-    image: postgres:11.0
-    hostname: localhost
-    ports:
-      - 5432:5432
+    container_name: managerkit_database
+    image: postgres:13.3
     environment:
-      POSTGRES_PASSWORD: example_pass
-      POSTGRES_DB: example_app
+      POSTGRES_DB: "managerkit"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "posgtres"
+    volumes:
+      - .:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+  managerkit_server:
+    container_name: managerkit_server
+      build:
+        context: managerkit_server
+        dockerfile: Dockerfile
+      image: server:latest
+      ports:
+        - 8080:8080
+      depends_on:
+        - postgres
