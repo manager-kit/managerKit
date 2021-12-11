@@ -15,6 +15,8 @@
 	<description>Application for managers</description>
 	<properties>
 		<java.version>11</java.version>
+		<lombok.version>1.18.16</lombok.version>
+		<junit.version>4.12</junit.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -29,7 +31,6 @@
 			<groupId>org.liquibase</groupId>
 			<artifactId>liquibase-core</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -64,6 +65,19 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>${liquibase.version}</version>
+				<configuration>
+					<propertyFile>${project.basedir}/src/main/resources/liquibase.properties</propertyFile>
+					<changeLogFile>${project.basedir}/src/main/resources/db/changelog-master.xml</changeLogFile>
+					<dataDir>${project.basedir}/src/main/resources/db/data</dataDir>
+					<verbose>false</verbose>
+					<logging>info</logging>
+					<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
 				</configuration>
 			</plugin>
 		</plugins>
