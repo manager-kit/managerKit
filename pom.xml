@@ -16,6 +16,8 @@
 	<properties>
 		<java.version>11</java.version>
 		<lombok.version>1.18.16</lombok.version>
+		<jwt.version>0.9.1</jwt.version>
+		<querydsl.version>4.4.0</querydsl.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -53,6 +55,21 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${jwt.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-jpa</artifactId>
+			<version>${querydsl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-apt</artifactId>
+			<version>${querydsl.version}</version>
 		</dependency>
 	</dependencies>
 

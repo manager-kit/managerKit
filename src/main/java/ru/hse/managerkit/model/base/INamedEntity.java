@@ -1,5 +1,5 @@
 package ru.hse.managerkit.model.base;
 
-public interface INamedEntity extends IEntity{
+public interface INamedEntity{
     String getName();
 }
