@@ -1,24 +1,26 @@
 version: '3.4'
 
 services:
-  postgres:
-    container_name: managerkit_database
-    image: postgres:13.3
+  db:
+    image: postgres:13.1
+    container_name: db
     environment:
       POSTGRES_DB: "managerkit"
-      POSTGRES_USER: "postgres"
-      POSTGRES_PASSWORD: "posgtres"
+      POSTGRES_USERNAME: "postgres"
+      POSTGRES_PASSWORD: "postgres"
     volumes:
       - .:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
-  managerkit_server:
-    container_name: managerkit_server
-      build:
-        context: managerkit_server
-        dockerfile: Dockerfile
-      image: server:latest
-      ports:
-        - 8080:8080
-      depends_on:
-        - postgres
+  manager_kit_server:
+    container_name: manager_kit_server
+    build:
+      context: .
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/managerkit
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
