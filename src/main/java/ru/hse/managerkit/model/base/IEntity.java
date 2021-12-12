@@ -1,5 +1,7 @@
 package ru.hse.managerkit.model.base;
 
-public interface IEntity {
-    Long getId();
+import java.io.Serializable;
+
+public interface IEntity<T extends Serializable> {
+    T getId();
 }
