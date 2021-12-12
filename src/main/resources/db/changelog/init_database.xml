@@ -1,0 +1,170 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="1" author="manuylov">
+        <createTable tableName="score">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="main_score" type="int"/>
+            <column name="team_satisfaction" type="int"/>
+            <column name="management_satisfaction" type="int"/>
+            <column name="relations_with_subordinates" type="int"/>
+            <column name="relations_with_superiors" type="int"/>
+            <column name="management_control" type="int"/>
+            <column name="professional_burnout" type="int"/>
+            <column name="achievements_at_work" type="int"/>
+            <column name="tasks_performed" type="int"/>
+            <column name="level_of_responsibility" type="int"/>
+            <column name="career_growth" type="int"/>
+            <column name="personal_growth" type="int"/>
+            <column name="recognition_in_the_team" type="int"/>
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="manuylov">
+        <createTable tableName="user">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="username " type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="score_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_user_score" references="score(id)"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_deleted" type="boolean" defaultValueComputed="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="3" author="manuylov">
+        <createTable tableName="role">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="text">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="4" author="manuylov">
+        <createTable tableName="user_role_binding">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_user_role_binding_user" references="user(id)"/>
+            </column>
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_user_role_binding_role" references="role(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="5" author="manuylov">
+        <createTable tableName="meet">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="interviewer_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_meet_user_interviewer" references="user(id)"/>
+            </column>
+            <column name="respondent_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_meet_user_respondent" references="user(id)"/>
+            </column>
+            <column name="score_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_meet_score" references="score(id)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="6" author="manuylov">
+        <createTable tableName="teem">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="director_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_teem_user_director" references="user(id)"/>
+            </column>
+            <column name="score_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_meet_score" references="score(id)"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_deleted" type="boolean" defaultValueComputed="false">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="7" author="manuylov">
+        <createTable tableName="teem_role">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="role" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="access_role" type="text">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="8" author="manuylov">
+        <createTable tableName="user_teem_binding">
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_user_teem_binding_user" references="user(id)"/>
+            </column>
+            <column name="teem_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_user_teem_binding_teem" references="teem(id)"/>
+            </column>
+            <column name="teem_role_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_user_teem_binding_teem_role"
+                             references="teem_role(id)"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
