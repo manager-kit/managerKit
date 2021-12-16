@@ -6,7 +6,7 @@
 
     <changeSet id="1" author="manuylov">
         <createTable tableName="score">
-            <column name="id" type="BIGINT">
+            <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
             </column>
             <column name="main_score" type="int"/>
@@ -33,7 +33,7 @@
 
     <changeSet id="2" author="manuylov">
         <createTable tableName="user">
-            <column name="id" type="BIGINT">
+            <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="text">
@@ -52,7 +52,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="score_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_user_score" references="score(id)"/>
+                <constraints nullable="true" foreignKeyName="fk_user_score" references="score(id)"/>
             </column>
             <column name="created_at" type="TIMESTAMP">
                 <constraints nullable="false"/>
@@ -68,7 +68,7 @@
 
     <changeSet id="3" author="manuylov">
         <createTable tableName="role">
-            <column name="id" type="BIGINT">
+            <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="text">
@@ -90,7 +90,7 @@
 
     <changeSet id="5" author="manuylov">
         <createTable tableName="meet">
-            <column name="id" type="BIGINT">
+            <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
             </column>
             <column name="interviewer_id" type="BIGINT">
@@ -107,7 +107,7 @@
 
     <changeSet id="6" author="manuylov">
         <createTable tableName="teem">
-            <column name="id" type="BIGINT">
+            <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="text">
@@ -134,7 +134,7 @@
 
     <changeSet id="7" author="manuylov">
         <createTable tableName="teem_role">
-            <column name="id" type="BIGINT">
+            <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
             </column>
             <column name="role" type="text">
