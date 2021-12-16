@@ -3,7 +3,6 @@ package ru.hse.managerkit.model.base;
 import com.querydsl.core.annotations.QueryEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
@@ -16,6 +15,5 @@ import javax.persistence.MappedSuperclass;
 @Data
 @QueryEntity
 public class BaseNamedDeletedEntity extends BaseDeletedEntity implements INamedEntity {
-    @Getter
-    String name;
+    private String name;
 }
