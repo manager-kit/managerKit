@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>653ac8f6-6b30-4fbb-bad6-128ae41f17c0.SCHEMA:managerkit.public</OriginalElement>
+  <nodes>
+    <node x="314.0" y="809.0">653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.meet</node>
+    <node x="138.4833333333333" y="1032.0">653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user_teem_binding</node>
+    <node x="698.0" y="0.0">653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.databasechangelog</node>
+    <node x="220.7151515151515" y="0.0">653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.score</node>
+    <node x="0.0" y="820.0">653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.teem_role</node>
+    <node x="356.2333333333333" y="454.0">653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user</node>
+    <node x="138.0" y="776.0">653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.teem</node>
+    <node x="922.0" y="0.0">653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.databasechangeloglock</node>
+    <node x="565.0" y="542.0">653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.role</node>
+    <node x="483.0" y="841.0">653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user_role_binding</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.teem" target="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.score">
+      <point x="-39.0" y="-103.0" />
+      <point x="177.0" y="429.0" />
+      <point x="259.0484848484848" y="429.0" />
+      <point x="-76.66666666666667" y="202.0" />
+    </edge>
+    <edge source="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user_teem_binding" target="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user">
+      <point x="56.0" y="-71.0" />
+      <point x="278.4833333333333" y="1007.0" />
+      <point x="472.5" y="1007.0" />
+      <point x="472.5" y="756.0" />
+      <point x="465.4333333333333" y="756.0" />
+      <point x="31.19999999999999" y="136.0" />
+    </edge>
+    <edge source="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user_role_binding" target="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.role">
+      <point x="42.0" y="-38.0" />
+      <point x="0.0" y="48.0" />
+    </edge>
+    <edge source="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user_teem_binding" target="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.teem">
+      <point x="0.0" y="-71.0" />
+      <point x="222.4833333333333" y="1007.0" />
+      <point x="216.0" y="1007.0" />
+      <point x="0.0" y="103.0" />
+    </edge>
+    <edge source="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.meet" target="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.score">
+      <point x="-49.33333333333337" y="-70.0" />
+      <point x="338.66666666666663" y="746.0" />
+      <point x="335.7151515151515" y="746.0" />
+      <point x="0.0" y="202.0" />
+    </edge>
+    <edge source="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user" target="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.score">
+      <point x="0.0" y="-136.0" />
+      <point x="434.2333333333333" y="429.0" />
+      <point x="412.3818181818182" y="429.0" />
+      <point x="76.66666666666669" y="202.0" />
+    </edge>
+    <edge source="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user_teem_binding" target="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.teem_role">
+      <point x="-56.0" y="-71.0" />
+      <point x="166.4833333333333" y="1007.0" />
+      <point x="59.0" y="1007.0" />
+      <point x="0.0" y="59.0" />
+    </edge>
+    <edge source="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.meet" target="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user">
+      <point x="-2.8421709430404007E-14" y="-70.0" />
+      <point x="387.99999999999994" y="756.0" />
+      <point x="403.0333333333333" y="756.0" />
+      <point x="-31.19999999999999" y="136.0" />
+    </edge>
+    <edge source="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.teem" target="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user">
+      <point x="39.0" y="-103.0" />
+      <point x="255.0" y="756.0" />
+      <point x="371.8333333333333" y="756.0" />
+      <point x="-62.400000000000006" y="136.0" />
+    </edge>
+    <edge source="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user_role_binding" target="653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user">
+      <point x="-42.0" y="-38.0" />
+      <point x="525.0" y="756.0" />
+      <point x="496.63333333333327" y="756.0" />
+      <point x="62.39999999999998" y="136.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5420315236427321" x="560.9999999999999" y="587.0" />
+  <SelectedNodes>
+    <node>653ac8f6-6b30-4fbb-bad6-128ae41f17c0.TABLE:managerkit.public.user_role_binding</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
