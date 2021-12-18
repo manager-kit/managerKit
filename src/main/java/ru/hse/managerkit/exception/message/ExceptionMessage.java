@@ -1,5 +1,10 @@
 package ru.hse.managerkit.exception.message;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+@AllArgsConstructor
+@Getter
 public enum ExceptionMessage
 {
     INTERNAL_SERVER_ERROR("Something went wrong"),
@@ -9,14 +14,4 @@ public enum ExceptionMessage
     UNAUTHORIZED("You should authorize");
 
     private final String value;
-
-    ExceptionMessage(String s)
-    {
-        this.value = s;
-    }
-
-    public String getValue()
-    {
-        return this.value;
-    }
 }
