@@ -29,8 +29,6 @@ public class User extends BaseNamedDeletedEntity {
     @Column(name = "email")
     private String email;
 
-//    private Long scoreId;
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="user_role_binding",
             joinColumns = @JoinColumn(name = "user_id"),

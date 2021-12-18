@@ -19,6 +19,7 @@
         <jwt.version>0.9.1</jwt.version>
         <querydsl.version>4.4.0</querydsl.version>
         <apt-plugin.version>1.1.3</apt-plugin.version>
+        <model-mapper.version>2.3.8</model-mapper.version>
     </properties>
     <dependencies>
         <dependency>
@@ -70,6 +71,11 @@
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-jpa</artifactId>
             <version>${querydsl.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>${model-mapper.version}</version>
         </dependency>
     </dependencies>
     <build>
