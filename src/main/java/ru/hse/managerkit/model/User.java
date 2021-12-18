@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "user", schema = "public")
+@Table(name = "user",schema = "public")
 @EqualsAndHashCode(callSuper = true)
 @ToString
 public class User extends BaseNamedDeletedEntity {
