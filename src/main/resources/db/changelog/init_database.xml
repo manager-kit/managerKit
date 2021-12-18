@@ -51,9 +51,9 @@
             <column name="password" type="text">
                 <constraints nullable="false"/>
             </column>
-            <column name="score_id" type="BIGINT">
-                <constraints nullable="true" foreignKeyName="fk_user_score" references="score(id)"/>
-            </column>
+<!--            <column name="score_id" type="BIGINT">-->
+<!--                <constraints nullable="true" foreignKeyName="fk_user_score" references="score(id)"/>-->
+<!--            </column>-->
             <column name="created_at" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
