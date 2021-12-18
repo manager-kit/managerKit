@@ -2,7 +2,7 @@ package ru.hse.managerkit.converter;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Qualifier;
+
 import org.springframework.stereotype.Component;
 import ru.hse.managerkit.dto.UserDto;
 import ru.hse.managerkit.model.User;
@@ -18,8 +18,7 @@ public class UserConverter {
     }
 
     public UserDto toDto(User user) {
-        UserDto userDto = modelMapper.map(user, UserDto.class);
-        return userDto;
+        return modelMapper.map(user, UserDto.class);
     }
 
 }
