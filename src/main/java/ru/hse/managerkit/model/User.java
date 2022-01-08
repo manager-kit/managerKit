@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "user",schema = "public")
+@Table(name = "user", schema = "public")
 @EqualsAndHashCode(callSuper = true)
 @ToString
 public class User extends BaseNamedDeletedEntity {
@@ -34,5 +34,8 @@ public class User extends BaseNamedDeletedEntity {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     List<Role> roles = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    List<UserTeamBinding> teams;
 
 }

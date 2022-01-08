@@ -1,23 +1,29 @@
 package ru.hse.managerkit.model;
 
+import lombok.Builder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 
+@Builder
 public class CustomUserDetails implements UserDetails {
-    private String login;
-    private String password;
-    private Collection<? extends GrantedAuthority> grantedAuthorities;
+    private final String username;
+    private final String password;
+    private final Collection<? extends GrantedAuthority> grantedAuthorities;
 
     public static CustomUserDetails fromUserEntityToCustomUserDetails(User user) {
-        CustomUserDetails c = new CustomUserDetails();
-        c.login = user.getUsername();
-        c.password = user.getPassword();
-//        c.grantedAuthorities = Collections.singletonList(new SimpleGrantedAuthority(user.getRoles().toString()));
-        return c;
+        Collection<SimpleGrantedAuthority> newGrantedAuthorities = new ArrayList<>();
+        for (Role role : user.getRoles()) {
+            newGrantedAuthorities.add(new SimpleGrantedAuthority(role.getName().getValue()));
+        }
+        return CustomUserDetails.builder()
+                .username(user.getUsername())
+                .password(user.getPassword())
+                .grantedAuthorities(newGrantedAuthorities)
+                .build();
     }
 
     @Override
@@ -32,7 +38,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return login;
+        return username;
     }
 
     @Override

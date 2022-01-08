@@ -51,9 +51,6 @@
             <column name="password" type="text">
                 <constraints nullable="false"/>
             </column>
-            <column name="score_id" type="BIGINT">
-                <constraints nullable="true" foreignKeyName="fk_user_score" references="score(id)"/>
-            </column>
             <column name="created_at" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
@@ -93,6 +90,12 @@
             <column name="id" type="bigserial">
                 <constraints primaryKey="true"/>
             </column>
+            <column name="name" type="text">
+                <constraints nullable="false"/>
+            </column>
+            <column name="agenda" type="text">
+                <constraints nullable="true"/>
+            </column>
             <column name="interviewer_id" type="BIGINT">
                 <constraints nullable="false" foreignKeyName="fk_meet_user_interviewer" references="user(id)"/>
             </column>
@@ -100,7 +103,22 @@
                 <constraints nullable="false" foreignKeyName="fk_meet_user_respondent" references="user(id)"/>
             </column>
             <column name="score_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_meet_score" references="score(id)"/>
+                <constraints nullable="true" foreignKeyName="fk_meet_score" references="score(id)"/>
+            </column>
+            <column name="date_from" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_to" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_closed" type="boolean" defaultValueComputed="false">
+                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
@@ -116,9 +134,6 @@
             <column name="director_id" type="BIGINT">
                 <constraints nullable="false" foreignKeyName="fk_teem_user_director" references="user(id)"/>
             </column>
-            <column name="score_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_meet_score" references="score(id)"/>
-            </column>
             <column name="created_at" type="TIMESTAMP">
                 <constraints nullable="false"/>
             </column>
@@ -130,7 +145,6 @@
             </column>
         </createTable>
     </changeSet>
-
 
     <changeSet id="7" author="manuylov">
         <createTable tableName="teem_role">
@@ -157,12 +171,6 @@
             <column name="teem_role_id" type="BIGINT">
                 <constraints nullable="false" foreignKeyName="fk_user_teem_binding_teem_role"
                              references="teem_role(id)"/>
-            </column>
-            <column name="created_at" type="TIMESTAMP">
-                <constraints nullable="false"/>
-            </column>
-            <column name="updated_at" type="TIMESTAMP">
-                <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>

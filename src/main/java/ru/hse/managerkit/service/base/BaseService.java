@@ -24,7 +24,7 @@ public interface BaseService<T extends IEntity<I>, I extends Serializable> {
 
     void delete(T t);
 
-    void delete(I id) throws ChangeSetPersister.NotFoundException;
+    void delete(I id);
 
     boolean isExist(I id);
 

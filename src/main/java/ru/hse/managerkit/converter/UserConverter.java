@@ -2,8 +2,8 @@ package ru.hse.managerkit.converter;
 
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-
 import org.springframework.stereotype.Component;
+import ru.hse.managerkit.dto.SignInDto;
 import ru.hse.managerkit.dto.UserDto;
 import ru.hse.managerkit.model.User;
 
@@ -17,8 +17,11 @@ public class UserConverter {
         return modelMapper.map(userDto, User.class);
     }
 
+    public User fromAuthDto(SignInDto userDto){
+        return modelMapper.map(userDto, User.class);
+    }
+
     public UserDto toDto(User user) {
         return modelMapper.map(user, UserDto.class);
     }
-
 }

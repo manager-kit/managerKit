@@ -1,4 +1,4 @@
 FROM openjdk:11
 MAINTAINER managerKit.ru
-COPY target/managerkit-0.0.1-SNAPSHOT.jar managerkit-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","/managerkit-0.0.1-SNAPSHOT.jar"]
+COPY managerkit-0.0.1.jar managerkit-0.0.1.jar
+ENTRYPOINT ["java","-jar","managerkit-0.0.1.jar"]

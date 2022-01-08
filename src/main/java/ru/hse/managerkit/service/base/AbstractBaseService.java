@@ -2,7 +2,6 @@ package ru.hse.managerkit.service.base;
 
 import com.querydsl.core.types.EntityPath;
 import com.querydsl.core.types.Predicate;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.transaction.annotation.Propagation;
@@ -64,7 +63,7 @@ public abstract class AbstractBaseService<T extends IEntity<I>, I extends Serial
 
     @Override
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public void delete(I id) throws ChangeSetPersister.NotFoundException {
+    public void delete(I id){
         getRepository().deleteById(id);
     }
 
