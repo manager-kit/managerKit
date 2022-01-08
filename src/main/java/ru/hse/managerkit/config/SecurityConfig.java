@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers(EndPoints.LOGIN, EndPoints.SIGN_IN).permitAll()
+                .antMatchers(EndPoints.LOGIN, EndPoints.SIGN_IN, EndPoints.SWAGGER, EndPoints.SWAGGER_UTIL).permitAll()
                 .anyRequest().authenticated();
     }
 

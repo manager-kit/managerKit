@@ -1,6 +1,9 @@
 package ru.hse.managerkit.util;
 
 public final class EndPoints {
+    public static final String SWAGGER = "/swagger-ui/**";
+    public static final String SWAGGER_UTIL = "/v3/api-docs/**";
+
     public static final String BASE = "/api";
     public static final String BASE_USER = BASE + "/user";
     public static final String GET = "/get";
